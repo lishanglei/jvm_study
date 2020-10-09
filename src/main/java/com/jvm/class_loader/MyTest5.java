@@ -25,7 +25,7 @@ public class MyTest5 {
 }
 
 interface MyParent5 {
-   public static final int a = 5;
+   int a = 5;
    int c =new Random().nextInt(3);
 }
 
