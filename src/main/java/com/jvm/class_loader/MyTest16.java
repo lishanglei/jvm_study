@@ -56,6 +56,9 @@ public class MyTest16 extends ClassLoader {
         this.classLoaderName = classLoaderName;
     }
 
+    public MyTest16(ClassLoader parent ){
+        super(parent);
+    }
     /**
      * 根据二进制的类的名字查找类,并返回其Class对象
      *
@@ -65,7 +68,6 @@ public class MyTest16 extends ClassLoader {
      */
     @Override
     protected Class<?> findClass(String className) throws ClassNotFoundException {
-        System.out.println("findClass invoked");
         byte[] data = this.loadClassData(className);
 
         //将字节数组转化为类的Class对象
@@ -80,7 +82,7 @@ public class MyTest16 extends ClassLoader {
      */
     private byte[] loadClassData(String clasaName) {
 
-        System.out.println("loadClassData invoked");
+        System.out.println("类加载器: "+classLoaderName);
         InputStream in = null;
         byte[] data = null;
         ByteArrayOutputStream baos = null;
